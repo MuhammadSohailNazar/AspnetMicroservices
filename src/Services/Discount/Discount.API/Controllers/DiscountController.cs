@@ -21,7 +21,7 @@ namespace Discount.API.Controllers
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-        [HttpGet("{ProductName}", Name = "GetDiscount")]
+        [HttpGet("{productName}", Name = "GetDiscount")]
         [ProducesResponseType(typeof(Coupon), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Coupon>> GetCoupon(string productName)
         {
@@ -41,7 +41,7 @@ namespace Discount.API.Controllers
         [ProducesResponseType(typeof(Coupon), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Coupon>> UpdateCoupon([FromBody] Coupon coupon)
         {
-            return Ok(await _repository.CreateDiscount(coupon));
+            return Ok(await _repository.UpdateDiscount(coupon));
         }
 
         [HttpDelete("{ProductName}", Name = "DeleteDiscount")]
